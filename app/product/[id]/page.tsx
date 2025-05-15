@@ -9,7 +9,11 @@ type Props = {
   title: string;
   category: { name: string };
   price: string;
-  image: string;
+  image: {
+    url: string;
+    height: number;
+    width: number;
+  };
 };
 
 // microCMSから特定の製品情報を取得
@@ -34,6 +38,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ id: s
     {/* <div className={styles.date}>{formattedDate}</div> 日付を表示 */}
     <div className={styles.category}>カテゴリー：{post.category && post.category.name}</div> {/* カテゴリーを表示 */}
     <div className={styles.post} dangerouslySetInnerHTML={{ __html: post.price }} /> {/* 記事本文を表示 */}
+    {post.image && (
+      <img
+        src={post.image.url}
+        alt={post.title} // alt属性はアクセシビリティのために重要です
+        width={post.image.width} // 必要に応じてwidthを指定
+        height={post.image.height} // 必要に応じてheightを指定
+        style={{ maxWidth: '100%', height: 'auto' }} // レスポンシブ対応
+      />
+    )}
   </main>
   );
 }
