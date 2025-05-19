@@ -32,12 +32,12 @@ export default async function Home() {
   const posts = await getBlogPosts();
 
   return (
-    <main>
-      <div className={styles.main}>
-        <h1>商品一覧</h1>
+    <main className={styles.main}>
+      <div className={styles.mainInr}>
+        <h1 className={styles.mainInrTitle}>商品一覧</h1>
         <div className={styles.products}>
           {posts.map((post) => (
-              <Link href={`/product/${post.id}`} key={post.id}> {/* Linkコンポーネントを使用、key属性を追加 */}
+              <Link href={`/product/${post.id}`} key={post.id} className={styles.productItem}> {/* Linkコンポーネントを使用、key属性を追加 */}
                 {post.image && (
                   <img
                     src={post.image.url}
