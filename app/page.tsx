@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { client } from '../libs/microcms';
 import styles from './page.module.css';
+import logoImage from '../img/logo.png';
 
 // 商品の型定義
 type Props = {
@@ -35,7 +36,9 @@ export default async function Home() {
     <main className={styles.main}>
       <div className={styles.mainInr}>
         <div>
-          <p>Style Select</p>
+          <svg width="150" height="150" className={styles.logo}>
+            <image href={logoImage.src} x="0" y="0" height="100%" width="100%" />
+          </svg>
         </div>
         <h1 className={styles.mainInrTitle}>商品一覧</h1>
         <div className={styles.products}>
