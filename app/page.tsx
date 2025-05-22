@@ -34,10 +34,16 @@ export default async function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.mainInr}>
+        <div>
+          <p>Style Select</p>
+        </div>
         <h1 className={styles.mainInrTitle}>商品一覧</h1>
         <div className={styles.products}>
-          {posts.map((post) => (
-              <Link href={`/product/${post.id}`} key={post.id} className={styles.productItem}> {/* Linkコンポーネントを使用、key属性を追加 */}
+        {posts.map((post) => {
+            const priceWithTax = `¥ ${post.price} (税込)`;
+
+            return (
+              <Link href={`/product/${post.id}`} key={post.id} className={styles.productItem}>
                 {post.image && (
                   <img
                     src={post.image.url}
@@ -47,12 +53,12 @@ export default async function Home() {
                     style={{ maxWidth: '100%', height: 'auto' }}
                   />
                 )}
-                <p>{post.title}</p> {/* 商品名を表示 */}
-                <p className={styles.category}>{post.category && post.category.name}</p> {/* カテゴリーを表示 */}
-                <div className={styles.post} dangerouslySetInnerHTML={{ __html: post.price }} />
+                <p className={styles.title} >{post.title}</p>
+                <div className={styles.price} dangerouslySetInnerHTML={{ __html: priceWithTax }} />
               </Link>
+            );
+          })}
 
-          ))}
         </div>
       </div>
     </main>

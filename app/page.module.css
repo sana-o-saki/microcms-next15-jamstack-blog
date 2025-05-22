@@ -1,5 +1,7 @@
 .main {
-  background-color: #f0eee4;
+  background-color: #fff;
+  color: #333;
+  font-family: 'sans';
 }
 
 .mainInr {
@@ -11,16 +13,35 @@
   text-align: center;
 }
 
+.mainInrTitle {
+  width: 100%;
+  text-align: left;;
+  padding: 0 0 5px 20px;
+  border-bottom: 2px solid #333;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
 .products {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 20px;
 }
 
 .productItem {
   display: block;
-  width: calc(30% - 20px);
+  width: calc(20% - 10px);
+}
+
+.title {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+}
+.price {
+  font-size: 14px;
+  text-align: left;
 }
 
 
